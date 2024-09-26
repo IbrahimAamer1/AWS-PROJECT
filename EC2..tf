@@ -5,7 +5,7 @@ resource "aws_instance" "bastion" {
   associate_public_ip_address = true
   availability_zone           = "eu-central-1a"
   security_groups             = [aws_security_group.bastion.id]
-  key_name                    = "key"
+  key_name                    = aws_key_pair.UbuntuKP.key_name
   tags = {
     Name = "bastion"
   }
