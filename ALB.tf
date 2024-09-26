@@ -2,9 +2,10 @@ resource "aws_lb" "lb" {
   name               = "test-lb-tf"
   internal           = false
   load_balancer_type = "application"
+  security_groups = [aws_security_group.bastion.id]
   subnets            = [
-     aws_subnet.private-subnet1.id,
-     aws_subnet.private-subnet2.id
+     aws_subnet.public-subnet1.id,
+     aws_subnet.public-subnet2.id
   ]
 
 }
